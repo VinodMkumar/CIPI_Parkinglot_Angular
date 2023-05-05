@@ -1,0 +1,77 @@
+<div id="page-container">
+  <table class="tag">
+    <div style="margin-top: 50px;text-align: center;">
+      Tag number:
+      <br />
+      <input type="text" placeholder="Value" [(ngModel)]="tagtextInput">
+      <div>
+        <input type="button" value="In" class="btn-large" (click)="inTagValue()" />
+        <input type="button" value="Out" class="btn-large" (click)="outTagValue()" />
+      </div>
+    </div>
+    <br />
+    <div style="text-align: center;margin-top: 70px;">
+      <input type="button" Value="Stats" class="btn-large" (click)="modalStats()">
+    </div>
+    <br />
+    <div *ngIf="isModalStatsShow">
+      <table class="tagtable">
+        <tr>
+          <th>Availablespots</th>
+          <th>Today Revenue</th>
+          <th>Average Cars Per Day</th>
+          <th>Average Revenue Per Day</th>
+        </tr>
+        <tr>
+          <td>{{ data.availablespots }}</td>
+          <td>{{ data.todayRevenue }}</td>
+          <td>{{ data.avgCarsPerDay }}</td>
+          <td>{{ data.avgRevenuePerDay }}</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <footer>
+        <h5>Area A</h5>
+      </footer>
+    </div>
+  </table>
+  <table class="spotstable">
+
+    <div style="text-align: center;">
+      Total spots : 15
+      <br />
+      Hourly Fee:$15
+      <br />
+    </div>
+
+    <div style="margin-top: 60px;text-align: center;">
+      Available spots:{{availablespots}}
+    </div>
+    <br />
+    <div>
+      <table class="tagtable">
+        <tr>
+          <th>Tag Number</th>
+          <th>In</th>
+          <th>Elapsed time</th>
+        </tr>
+        <tr *ngFor="let data of parkingspotslist">
+          <td>{{ data.tagNumber }}</td>
+          <td>{{ data.inTime }}</td>
+          <td>{{ data.elapsedTime }}</td>
+        </tr>
+      </table>
+    </div>
+    <br />
+    <div style="text-align: right;">
+      Spots Taken : {{takenspotsCount}}
+    </div>
+    <br />
+    <div>
+      <footer>
+        <h5>Area B</h5>
+      </footer>
+    </div>
+
+    <router-outlet></router-outlet>
