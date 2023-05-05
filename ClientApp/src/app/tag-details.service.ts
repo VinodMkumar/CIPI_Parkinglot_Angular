@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TagDetailsService {
-  private baseURL = 'https://localhost:7265/Parking/';
+  private baseURL = 'https://localhost:44392/Parking/';
 
   constructor(private httpClient: HttpClient) { }
 
