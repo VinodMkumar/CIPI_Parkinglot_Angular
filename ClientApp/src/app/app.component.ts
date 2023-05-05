@@ -31,8 +31,11 @@ export class AppComponent {
         const textdata = this.tagtextInput;
         await this.service.inTagData(textdata).subscribe((response) => {
           console.log(response);
-
-        });
+        },
+          (error) => {
+            console.log('Error:', error.error.text);
+            alert(error.error);
+          });
 
         this.getParkingspots();
       }
