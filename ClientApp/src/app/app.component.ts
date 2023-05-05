@@ -10,6 +10,8 @@ import { TagDetailsService } from './tag-details.service';
 export class AppComponent {
   data: any;
   resdata: any;
+  totalspots!: number | 0;
+  feeperHour!: number | 0;
   availablespots!: number | 0;
   takenspotsCount!: number | 0;
   parkingspotslist: any;
@@ -93,6 +95,8 @@ export class AppComponent {
       await this.service.getTagData().subscribe((response) => {
         //console.log(response);
         this.data = response;
+        this.totalspots = this.data.totalspots;
+        this.feeperHour = this.data.feeperHr;
         this.availablespots = this.data.availablespotsCount;
         this.takenspotsCount = this.data.takenspotsCount;
         this.parkingspotslist = this.data.parkingspotslist;
